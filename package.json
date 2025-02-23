@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "bindle",
+  "version": "0.0.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint",
+    "test": "pnpm -r run test"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.6",
+    "vitest": "^3.0.6"
+  }
+}

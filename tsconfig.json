@@ -1,0 +1,34 @@
+// {
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "ESNext",
+//     "moduleResolution": "bundler",
+//     "strict": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "reactivity": ["./packages/reactivity/src"],
+//       "core": ["./packages/core/src"]
+//     },
+//     "types": ["vitest/globals"]
+//   },
+//   "include": ["packages/**/*"],
+//   "exclude": ["node_modules", "dist", "vite.config.ts"]
+// }
+
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "declaration": true,
+    "strict": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "paths": {
+      "@bindle/*": ["./packages/*/src"]
+    },
+  },
+  "include": ["packages/**/*"],
+  "exclude": ["**/eslint.config.ts/**", "**/eslint.config.js/**", "**/node_modules/**"]
+}

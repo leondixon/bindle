@@ -1,0 +1,27 @@
+{
+  "name": "@bindle/core",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc && vite build",
+    "typecheck": "tsc"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "dependencies": {
+    "@bindle/reactivity": "workspace:*",
+    "@bindle/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@typescript-eslint/parser": "^8.24.1",
+    "eslint": "^9.21.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.1",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^3.0.6"
+  }
+}
