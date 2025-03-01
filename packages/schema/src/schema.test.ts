@@ -4,6 +4,7 @@ import { BindleElementSchema, parseDOMElementSchema } from '.'
 test('parse element schema', () => {
   const element: BindleElementSchema = {
     $element: 'input',
+    props: {},
     id: 'input',
     name: 'input'
   }

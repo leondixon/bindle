@@ -3,7 +3,8 @@
   "name": "bindle",
   "version": "0.0.1",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "build": "pnpm -r run build",

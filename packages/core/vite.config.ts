@@ -20,5 +20,10 @@ export default defineConfig({
       inline: ['@bindle/reactivity', '@bindle/schema'],
     },
   },
-  plugins: [dts()]
+  plugins: [dts({
+    outDir: 'dist',
+    include: ['src'],
+    exclude: ['node_modules', 'dist'],
+    insertTypesEntry: true, // Ensures "types" field in package.json works
+  })]
 });

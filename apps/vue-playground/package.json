@@ -1,8 +1,8 @@
 {
   "name": "vue-playground",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -16,9 +16,12 @@
     "lint": "run-s lint:*"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "@bindle/schema": "workspace:*",
+    "@bindle/vue": "workspace:*",
+    "vue": "latest"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
     "@playwright/test": "^1.50.1",
     "@tsconfig/node22": "^22.0.0",
     "@types/jsdom": "^21.1.7",
@@ -29,6 +32,7 @@
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.20.1",
+    "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-oxlint": "^0.15.10",
     "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-vue": "^9.32.0",
@@ -40,8 +44,6 @@
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitest": "^3.0.5",
-    "vue-tsc": "^2.2.2",
-    "@antfu/eslint-config": "^4.3.0",
-    "eslint-plugin-format": "^1.0.1"
+    "vue-tsc": "^2.2.2"
   }
 }

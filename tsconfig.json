@@ -23,12 +23,12 @@
     "declaration": true,
     "strict": true,
     "baseUrl": ".",
-    "outDir": "./dist",
     "skipLibCheck": true,
     "paths": {
       "@bindle/*": ["./packages/*/src"]
     },
   },
+  
   "include": ["packages/**/*"],
   "exclude": ["**/eslint.config.ts/**", "**/eslint.config.js/**", "**/node_modules/**"]
 }

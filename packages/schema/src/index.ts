@@ -1,8 +1,9 @@
 export interface BindleElementSchema {
   $element: string,
+  children?: BindleSchema[],
   id?: string,
   name?: string
-  props: Record<string, unknown>
+  props?: Record<string, unknown>
 }
 
 export interface BindleComponentSchema {
@@ -15,9 +16,10 @@ export type BindleSchema = BindleElementSchema | BindleComponentSchema
 
 interface BaseSchemaDefinition {
   elementTag: string,
+  children?: BaseSchemaDefinition[]
   id: string,
   name: string,
-  props: Record<string, unknown>
+  props?: Record<string, unknown>
 }
 
 type BindleDOMSchemaDefinition = {
@@ -28,9 +30,10 @@ type BindleComponentSchemaDefinition = {
   type: 'input',
 } & BaseSchemaDefinition
 
-export type BindleSchemaDefiniton = BindleDOMSchemaDefinition | BindleComponentSchemaDefinition
+export type BindleSchemaDefinition = BindleDOMSchemaDefinition | BindleComponentSchemaDefinition
 
 function isDOMElementSchema(schema: BindleSchema): BindleElementSchema | false {
+  console.log('$element' in schema)
   if ('$element' in schema)
     return schema
 
@@ -38,7 +41,8 @@ function isDOMElementSchema(schema: BindleSchema): BindleElementSchema | false {
 }
 
 
-export function parse(schema: BindleSchema): BindleSchemaDefiniton {
+export function parse(schema: BindleSchema): BindleSchemaDefinition {
+  console.log('parse', isDOMElementSchema(schema))
   if (isDOMElementSchema(schema))
     return parseDOMElementSchema(schema as BindleElementSchema)
 
@@ -58,15 +62,19 @@ function createUniqueId(type: string) {
   return uid
 }
 
-export function parseDOMElementSchema(schema: BindleElementSchema): BindleSchemaDefiniton {
+export function parseDOMElementSchema(schema: BindleElementSchema): BindleSchemaDefinition {
+  console.log('parseDOMElementSchema')
   const id = schema.id ?? createUniqueId(schema.$element)
-  const schemaDefinition: BindleSchemaDefiniton = {
+  const schemaDefinition: BindleSchemaDefinition = {
     type: 'input',
-    elementTag: 'input',
+    elementTag: schema.$element,
+    children: schema.children?.map((child) => parse(child)),
     name: schema.name ?? id,
     id,
     props: schema.props
   }
+
+  console.log(schemaDefinition)
 
   return schemaDefinition
 }

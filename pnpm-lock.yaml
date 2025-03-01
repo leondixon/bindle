@@ -17,8 +17,14 @@ importers:
 
   apps/vue-playground:
     dependencies:
+      '@bindle/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+      '@bindle/vue':
+        specifier: workspace:*
+        version: link:../../packages/vue
       vue:
-        specifier: ^3.5.13
+        specifier: latest
         version: 3.5.13(typescript@5.7.3)
     devDependencies:
       '@antfu/eslint-config':
@@ -133,6 +139,9 @@ importers:
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.21.0
+      '@typescript-eslint/parser':
+        specifier: ^8.24.1
+        version: 8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       eslint:
         specifier: ^9.21.0
         version: 9.21.0(jiti@2.4.2)
@@ -179,6 +188,37 @@ importers:
       vitest:
         specifier: ^3.0.6
         version: 3.0.6(@types/debug@4.1.12)(@types/node@22.13.5)(jiti@2.4.2)(jsdom@26.0.0)(yaml@2.7.0)
+
+  packages/vue:
+    dependencies:
+      '@bindle/schema':
+        specifier: workspace:*
+        version: link:../schema
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.21.0
+        version: 9.21.0
+      eslint:
+        specifier: ^9.21.0
+        version: 9.21.0(jiti@2.4.2)
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      typescript-eslint:
+        specifier: ^8.24.1
+        version: 8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      vite:
+        specifier: ^6.1.1
+        version: 6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0)
+      vite-plugin-dts:
+        specifier: ^4.5.0
+        version: 4.5.0(@types/node@22.13.5)(rollup@4.34.8)(typescript@5.7.3)(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0))
+      vitest:
+        specifier: ^3.0.6
+        version: 3.0.6(@types/debug@4.1.12)(@types/node@22.13.5)(jiti@2.4.2)(jsdom@26.0.0)(yaml@2.7.0)
+      vue:
+        specifier: latest
+        version: 3.5.13(typescript@5.7.3)
 
 packages:
 

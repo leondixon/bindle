@@ -3,20 +3,15 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   build: {
+    outDir: './dist',
     lib: {
       entry: './src/index.ts',
-      name: '@bindle/schema',
+      name: '@bindle/vue',
       formats: ['es'],   
       fileName: 'index'
     },
     rollupOptions: {
       external: [],
-    },
-  },
-  test: {
-    environment: 'node',
-    deps: {
-      inline: ['@bindle/core'],
     },
   },
   plugins: [dts({

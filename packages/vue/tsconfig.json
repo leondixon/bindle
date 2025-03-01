@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["src"]
+}

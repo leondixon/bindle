@@ -1,5 +1,5 @@
 import { createSignal } from '@bindle/reactivity'
-import { BindleSchema, BindleSchemaDefiniton } from '@bindle/schema'
+import { BindleSchemaDefinition } from '@bindle/schema'
 
 export interface BindleNode {
   type: 'input'
@@ -8,7 +8,7 @@ export interface BindleNode {
 }
 
 
-export function createNode(schema: BindleSchemaDefiniton): BindleNode {
+export function createNode(schema: BindleSchemaDefinition): BindleNode {
 
   const [ node ] = createSignal<BindleNode>({
     type: schema.type,

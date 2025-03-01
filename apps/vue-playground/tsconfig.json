@@ -1,5 +1,9 @@
 {
-  "files": [],
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["vite/client"]
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"
@@ -10,5 +14,7 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "files": [],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
 }

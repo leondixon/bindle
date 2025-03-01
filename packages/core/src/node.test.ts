@@ -1,9 +1,9 @@
 import { expect, test } from 'vitest'
 import { createNode } from './node'
-import { BindleSchemaDefiniton } from '@bindle/schema'
+import { BindleSchemaDefinition } from '@bindle/schema'
 
 test('creating an input schema', () => {
-  const schema: BindleSchemaDefiniton = {
+  const schema: BindleSchemaDefinition = {
     type: 'input',
     elementTag: 'input',
     name: 'defined',
