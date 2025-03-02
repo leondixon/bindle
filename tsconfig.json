@@ -27,6 +27,7 @@
     "paths": {
       "@bindle/*": ["./packages/*/src"]
     },
+    "outDir": "dist"
   },
   
   "include": ["packages/**/*"],

@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { BindleElementSchema, parseDOMElementSchema } from '.'
+import { BindleElementSchema, parseDOMElementSchema } from './schema'
 
 test('parse element schema', () => {
   const element: BindleElementSchema = {

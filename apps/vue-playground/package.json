@@ -16,8 +16,6 @@
     "lint": "run-s lint:*"
   },
   "dependencies": {
-    "@bindle/schema": "workspace:*",
-    "@bindle/vue": "workspace:*",
     "vue": "latest"
   },
   "devDependencies": {

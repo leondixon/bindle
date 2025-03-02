@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BindleSchema } from '@bindle/schema'
+import type { BindleSchema } from '@bindle/core'
 import { SchemaRender } from '@bindle/vue'
 
 const schema: BindleSchema = {
@@ -47,5 +47,5 @@ const schemaArray2: BindleSchema = [
 <template>
   <SchemaRender :schema="schema" />
   <SchemaRender :schema="schemaArray" />
-  <SchemaRender :schema="schemaArray2" />
+  <!-- <SchemaRender :schema="schemaArray2" /> -->
 </template>

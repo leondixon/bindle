@@ -1,5 +1,5 @@
 import { createSignal } from '@bindle/reactivity'
-import { BindleSchemaDefinition } from '@bindle/schema'
+import { BindleSchemaDefinition } from 'packages/core/src/schema'
 
 export interface BindleNode {
   type: 'input'

@@ -2,26 +2,29 @@
   "name": "@bindle/core",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "test": "vitest",
-    "build": "tsc && vite build",
-    "typecheck": "tsc"
+ "scripts": {
+    "build": "unbuild",
+    "prepack": "unbuild"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
-  "dependencies": {
-    "@bindle/reactivity": "workspace:*",
-    "@bindle/schema": "workspace:*"
-  },
-  "devDependencies": {
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
     "@eslint/js": "^9.21.0",
     "@typescript-eslint/parser": "^8.24.1",
     "eslint": "^9.21.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1",
-    "vite": "^6.1.1",
-    "vite-plugin-dts": "^4.5.0",
-    "vitest": "^3.0.6"
+    "unbuild": "^3.5.0",
+    "vitest": "^3.0.6",
+    "@bindle/reactivity": "workspace:*"
   }
 }
