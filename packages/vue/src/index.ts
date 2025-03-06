@@ -32,7 +32,7 @@ import { BindleSchema, BindleSchemaDefinition, parse } from "@bindle/core"
 //     )
 // }
 
-const SchemaRender = defineComponent((props: { schema: BindleSchema | BindleSchema[] }) => {
+const BindleSchemaRender = defineComponent((props: { schema: BindleSchema | BindleSchema[] }) => {
   let schemaDefinition: BindleSchemaDefinition | BindleSchemaDefinition[]
   if(Array.isArray(props.schema)){
     schemaDefinition = props.schema.map((schema) => parse(schema))
@@ -48,12 +48,15 @@ const SchemaRender = defineComponent((props: { schema: BindleSchema | BindleSche
 })
 
 export {
-  SchemaRender
+  BindleSchemaRender
 }
 
 export function renderHTMLElement(schema: BindleSchemaDefinition) {
+  const { elementTag, children, ...bindings } = schema
+  console.log(bindings)
   return h(
     schema.elementTag,
-    schema.props
+    bindings,
+    children?.map((child) => renderHTMLElement(child) as BindleSchemaDefinition)
   )
 }

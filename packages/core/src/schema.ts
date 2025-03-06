@@ -1,6 +1,7 @@
 export interface BindleElementSchema {
   $element: string,
   children?: BindleSchema[],
+  type?: string,
   id?: string,
   name?: string
   props?: Record<string, unknown>
@@ -17,13 +18,13 @@ export type BindleSchema = BindleElementSchema | BindleComponentSchema
 interface BaseSchemaDefinition {
   elementTag: string,
   children?: BaseSchemaDefinition[]
-  id: string,
-  name: string,
+  type?: string,
+  id?: string,
+  name?: string,
   props?: Record<string, unknown>
 }
 
 type BindleDOMSchemaDefinition = {
-  type: 'input',
 } & BaseSchemaDefinition
 
 type BindleComponentSchemaDefinition = {
@@ -42,7 +43,6 @@ function isDOMElementSchema(schema: BindleSchema): BindleElementSchema | false {
 
 
 export function parse(schema: BindleSchema): BindleSchemaDefinition {
-  console.log('parse', isDOMElementSchema(schema))
   if (isDOMElementSchema(schema))
     return parseDOMElementSchema(schema as BindleElementSchema)
 
@@ -64,13 +64,14 @@ function createUniqueId(type: string) {
 
 export function parseDOMElementSchema(schema: BindleElementSchema): BindleSchemaDefinition {
   console.log('parseDOMElementSchema')
-  const id = schema.id ?? createUniqueId(schema.$element)
+  console.log(schema)
+  // const id = schema.id ?? createUniqueId(schema.$element)
   const schemaDefinition: BindleSchemaDefinition = {
-    type: 'input',
     elementTag: schema.$element,
+    type: schema.type,
     children: schema.children?.map((child) => parse(child)),
-    name: schema.name ?? id,
-    id,
+    name: schema.name,
+    id: schema.id,
     props: schema.props
   }
 
@@ -78,6 +79,8 @@ export function parseDOMElementSchema(schema: BindleElementSchema): BindleSchema
 
   return schemaDefinition
 }
+
+
 
 
 // function parseComponentSchema(schema: BindleComponentSchema): BindleSchemaDefiniton {
