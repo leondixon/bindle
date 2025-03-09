@@ -1,6 +1,7 @@
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
 import tsParser from "@typescript-eslint/parser";
+import eslintConfigPrettier from "eslint-config-prettier/flat"
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -14,8 +15,6 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    plugins: {
-      "@typescript-eslint": ts,
-    },
   },
+  eslintConfigPrettier
 );

@@ -1,5 +1,5 @@
-import { defineComponent, h} from 'vue'
-import { BindleSchema, BindleSchemaDefinition, parse } from "@bindle/core"
+import { defineComponent, h } from "vue";
+import { BindleSchema, BindleSchemaDefinition, parse } from "@bindle/core";
 
 // export const BindleSchema = defineComponent({
 //   name: 'Bindle',
@@ -32,31 +32,33 @@ import { BindleSchema, BindleSchemaDefinition, parse } from "@bindle/core"
 //     )
 // }
 
-const BindleSchemaRender = defineComponent((props: { schema: BindleSchema | BindleSchema[] }) => {
-  let schemaDefinition: BindleSchemaDefinition | BindleSchemaDefinition[]
-  if(Array.isArray(props.schema)){
-    schemaDefinition = props.schema.map((schema) => parse(schema))
-    const children = schemaDefinition.map((definition) => renderHTMLElement(definition))
-    return () => children
-  }
-  else {
-    schemaDefinition = parse(props.schema)
-    return () => renderHTMLElement(schemaDefinition as BindleSchemaDefinition)
-  }
-}, {
-  props: ['schema']
-})
+const BindleSchemaRender = defineComponent(
+	(props: { schema: BindleSchema | BindleSchema[] }) => {
+		let schemaDefinition: BindleSchemaDefinition | BindleSchemaDefinition[];
+		if (Array.isArray(props.schema)) {
+			schemaDefinition = props.schema.map((schema) => parse(schema));
+			const children = schemaDefinition.map((definition) =>
+				renderHTMLElement(definition)
+			);
+			return () => children;
+		} else {
+			schemaDefinition = parse(props.schema);
+			return () =>
+				renderHTMLElement(schemaDefinition as BindleSchemaDefinition);
+		}
+	},
+	{
+		props: ["schema"],
+	}
+);
 
-export {
-  BindleSchemaRender
-}
+export { BindleSchemaRender };
 
 export function renderHTMLElement(schema: BindleSchemaDefinition) {
-  const { elementTag, children, ...bindings } = schema
-  console.log(bindings)
-  return h(
-    schema.elementTag,
-    bindings,
-    children?.map((child) => renderHTMLElement(child) as BindleSchemaDefinition)
-  )
+	const { elementTag, children, ...bindings } = schema;
+	return h(
+		schema.elementTag,
+		bindings,
+		children?.map((child) => renderHTMLElement(child) as BindleSchemaDefinition)
+	);
 }

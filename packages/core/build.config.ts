@@ -1,7 +1,7 @@
-import { defineBuildConfig } from 'unbuild'
+import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ['src/index', 'src/node', 'src/schema'],
+  entries: ["src/index", "src/node", "src/schema"],
   declaration: true,
   clean: true,
   externals: [
@@ -12,9 +12,9 @@ export default defineBuildConfig({
     "typescript-eslint",
     "unbuild",
     "vitest",
-    "@bindle/reactivity"
+    "@bindle/reactivity",
   ],
   rollup: {
     emitCJS: true,
   },
-})
+});

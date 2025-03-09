@@ -1,19 +1,17 @@
-import { createSignal } from '@bindle/reactivity'
-import { BindleSchemaDefinition } from 'packages/core/src/schema'
+import { createSignal } from "@bindle/reactivity";
+import { BindleSchemaDefinition } from "packages/core/src/schema";
 
 export interface BindleNode {
-  type: 'input'
-  name: string,
-  id: string,
+  type: "input";
+  name: string;
+  id: string;
 }
 
-
 export function createNode(schema: BindleSchemaDefinition): BindleNode {
-
-  const [ node ] = createSignal<BindleNode>({
+  const [node] = createSignal<BindleNode>({
     type: schema.type,
     name: schema.name,
     id: schema.id,
-  })
-  return node()
+  });
+  return node();
 }
