@@ -1,15 +1,16 @@
 import { test, expect } from "vitest";
-import { BindleElementSchema, parseDOMElementSchema } from "./schema";
+import { BindleElementSchema } from "./schema";
+import { parseDOMElementSchema } from "./parse";
 
 test("parse element schema", () => {
-  const element: BindleElementSchema = {
-    $element: "input",
-    props: {},
-    id: "input",
-    name: "input",
-  };
+	const element: BindleElementSchema = {
+		$element: "input",
+		props: {},
+		id: "input",
+		name: "input",
+	};
 
-  expect(parseDOMElementSchema(element)).toBeDefined();
+	expect(parseDOMElementSchema(element)).toBeDefined();
 });
 
 test("create a section", () => {});

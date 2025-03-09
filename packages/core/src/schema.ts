@@ -1,3 +1,5 @@
+import { parseBindleSchema, parseDOMElementSchema } from "./parse";
+
 export interface BindleElementSchema {
 	$element: string;
 	children?: BindleSchema[];
@@ -49,9 +51,18 @@ function isDOMElementSchema(schema: BindleSchema): BindleElementSchema | false {
 	return false;
 }
 
+function isBindleSchema(schema: BindleSchema): BindleNativeSchema | false {
+	if ("$bindle" in schema) return schema;
+
+	return false;
+}
+
 export function parse(schema: BindleSchema): BindleSchemaDefinition {
 	if (isDOMElementSchema(schema))
 		return parseDOMElementSchema(schema as BindleElementSchema);
+
+	if (isBindleSchema(schema))
+		return parseBindleSchema(schema as BindleNativeSchema);
 
 	throw new Error("No implemented");
 }
@@ -66,22 +77,6 @@ function createUniqueId(type: string) {
 	const uid = `${type}_${String(counter)}`;
 	UniqueIdsCounter.set(type, counter + 1);
 	return uid;
-}
-
-export function parseDOMElementSchema(
-	schema: BindleElementSchema
-): BindleSchemaDefinition {
-	// const id = schema.id ?? createUniqueId(schema.$element)
-	const schemaDefinition: BindleSchemaDefinition = {
-		elementTag: schema.$element,
-		type: schema.type,
-		children: schema.children?.map((child) => parse(child)),
-		name: schema.name,
-		id: schema.id,
-		props: schema.props,
-	};
-
-	return schemaDefinition;
 }
 
 interface SectionOptions {
