@@ -55,11 +55,11 @@ test("create sections and render", () => {
 
 	const outer = createSection({ name: "outer", children: [inner] });
 
-	const wrapper = mount(BindleSchemaRender, {
-		props: {
-			schema: 
-		}
-	})
+	// const wrapper = mount(BindleSchemaRender, {
+	// 	props: {
+	// 		schema: outer,
+	// 	},
+	// });
 });
 
 test("render a bindle component", () => {

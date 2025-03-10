@@ -15,7 +15,7 @@ test("create a section", () => {
 	});
 });
 
-test("create a section", () => {
+test("create a nested section", () => {
 	const input = createSection({ name: "input" });
 
 	const inner = createSection({ name: "inner", children: [input] });
