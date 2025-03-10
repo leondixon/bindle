@@ -1,6 +1,7 @@
 import { expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
 import { BindleSchemaRender } from ".";
+import { createSection } from "@bindle/core";
 
 test("render an input", () => {
 	const wrapper = mount(BindleSchemaRender, {
@@ -47,7 +48,19 @@ test("render a div with a child", () => {
 	wrapper.unmount();
 });
 
-test("render a component", () => {});
+test("create sections and render", () => {
+	const input = createSection({ name: "input" });
+
+	const inner = createSection({ name: "inner", children: [input] });
+
+	const outer = createSection({ name: "outer", children: [inner] });
+
+	const wrapper = mount(BindleSchemaRender, {
+		props: {
+			schema: 
+		}
+	})
+});
 
 test("render a bindle component", () => {
 	const wrapper = mount(BindleSchemaRender, {
