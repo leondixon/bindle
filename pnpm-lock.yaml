@@ -100,9 +100,6 @@ importers:
 
   packages/core:
     dependencies:
-      '@bindle/reactivity':
-        specifier: workspace:*
-        version: link:../reactivity
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.21.0
@@ -125,36 +122,15 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6(@types/debug@4.1.12)(@types/node@22.13.5)(@vitest/ui@3.0.7)(jiti@2.4.2)(jsdom@26.0.0)(yaml@2.7.0)
     devDependencies:
+      alien-signals:
+        specifier: ^1.0.4
+        version: 1.0.4
       eslint-config-prettier:
         specifier: ^10.1.1
         version: 10.1.1(eslint@9.21.0(jiti@2.4.2))
       prettier:
         specifier: 3.5.3
         version: 3.5.3
-
-  packages/reactivity:
-    dependencies:
-      '@eslint/js':
-        specifier: ^9.21.0
-        version: 9.21.0
-      '@typescript-eslint/parser':
-        specifier: ^8.24.1
-        version: 8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
-      eslint:
-        specifier: ^9.21.0
-        version: 9.21.0(jiti@2.4.2)
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
-      typescript-eslint:
-        specifier: ^8.24.1
-        version: 8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
-      unbuild:
-        specifier: ^3.5.0
-        version: 3.5.0(typescript@5.7.3)(vue-tsc@2.2.4(typescript@5.7.3))(vue@3.5.13(typescript@5.7.3))
-      vitest:
-        specifier: ^3.0.6
-        version: 3.0.6(@types/debug@4.1.12)(@types/node@22.13.5)(@vitest/ui@3.0.7)(jiti@2.4.2)(jsdom@26.0.0)(yaml@2.7.0)
 
   packages/vue:
     dependencies:
