@@ -1,0 +1,19 @@
+{
+  "name": "core",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.3.0",
+    "eslint": "^9.35.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.6"
+  }
+}
