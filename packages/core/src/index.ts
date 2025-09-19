@@ -1,11 +1,11 @@
 import type { Ref } from '@vue/reactivity'
 
-interface BindleFormContext<T> {
+export interface BindleFormContext<T> {
   name: string
   value: Ref<T>
 }
 
-interface BindleFieldContext<T> {
+export interface BindleFieldContext<T> {
   name: string
   value: Ref<T>
 }
