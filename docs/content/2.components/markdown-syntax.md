@@ -9,11 +9,11 @@ navigation:
 ---
 class: "[&>div]:*:my-0"
 ---
-::div{ class="flex flex-col" }
+::div{ class="flex }
   ::label{ for="test-input" }
     Test input
   ::
-  ::input{ label="Test input" name="test input" id="test-input" class="border border-white" }
+  ::input{ label="Test input" name="test input" id="test-input" }
   ::
 ::
 
