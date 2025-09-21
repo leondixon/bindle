@@ -6,11 +6,11 @@ const { help, id, label, type, value } = defineProps<{
   label: string
   id?: string
   help?: string
-  value: unknown
+  value?: unknown
 }>()
 
-const { state, type: fieldType } = useBindleField({type, value: undefined, id})
-
+const { state, type: fieldType } = useBindleField({type, value: 'undefined', id})
+state.value
 </script>
 
 <template>

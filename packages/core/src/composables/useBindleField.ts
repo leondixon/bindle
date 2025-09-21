@@ -1,18 +1,19 @@
 import { useFieldState } from './useFieldState'
 
-interface Options<T = unknown> {
+type FieldType = 'text' | 'number' | 'select' | 'textarea'
+interface Options<T> {
   id?: string
   name?: string
-  type: 'text' | 'number'
+  type: FieldType
   value: T
 }
 
-export interface BindleField {
-  type: Options['type']
-  state: ReturnType<typeof useFieldState>
+export interface BindleField<T> {
+  type: FieldType
+  state: ReturnType<typeof useFieldState<T>>
 }
 
-export function useBindleField(options: Options): BindleField {
+export function useBindleField<T>(options: Options<T>): BindleField<T> {
   const state = useFieldState(options.value)
   return {
     type: options.type,
