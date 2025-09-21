@@ -22,7 +22,7 @@ const { type, state, validation } = useBindleField({type: props.type, value: mod
 
 const { errors, addValidation } = validation
 
-addValidation({name: 'test', message: 'nice people', validator: () => model.value === 'test'})
+addValidation('test', 'nice people', () => model.value === 'test')
 
 </script>
 
@@ -31,7 +31,7 @@ addValidation({name: 'test', message: 'nice people', validator: () => model.valu
     <label :v-if="label" :for="id">{{ label }}</label>
     <input :type="type" :id v-model="model" class="border border-gray-700 rounded" >
     <p v-if="help">{{ help }}</p>
-    <div>
+    <div class="text-red-500">
       <p v-for="error in errors">{{ error[1] }}</p>
 
     </div>
