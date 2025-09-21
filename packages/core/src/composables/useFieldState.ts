@@ -1,23 +1,25 @@
-import type { ComputedRef, Ref } from '@vue/reactivity'
-import { computed, ref } from '@vue/reactivity'
+import type { ComputedRef, Ref } from 'vue'
+import { computed, watch } from 'vue'
 
 export interface FieldState<T> {
-  value: Ref<T>
-  initialValue: T
+  value: T
   isDirty: ComputedRef<boolean>
   setValue: (newValue: T) => void
   reset: () => void
 }
 
-export function useFieldState<T>(initialValue: T): FieldState<T> {
-  const value = ref(initialValue) as Ref<T>
-  const isDirty = computed(() => initialValue === value)
+export function useFieldState<T extends Ref>(value: T): FieldState<T> {
+  const initialValue = value.value
+  const isDirty = computed(() => value.value === initialValue)
+  watch(value, () => {
+    console.log(value.value, initialValue)
+    console.log(value.value === initialValue)
+  })
   const reset = () => (value.value = initialValue)
   const setValue = (newValue: T) => value.value = newValue
 
   return {
     value,
-    initialValue,
     isDirty,
     reset,
     setValue,

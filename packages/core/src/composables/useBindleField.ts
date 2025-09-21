@@ -1,3 +1,4 @@
+import type { InputHTMLAttributes } from 'vue'
 import { useFieldState } from './useFieldState'
 
 type FieldType = 'text' | 'number' | 'select' | 'textarea'
