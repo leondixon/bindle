@@ -1,5 +1,5 @@
 import type { ComputedRef, Ref } from 'vue'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 
 export interface FieldState<T> {
   value: T
@@ -11,12 +11,8 @@ export interface FieldState<T> {
 export function useFieldState<T extends Ref>(value: T): FieldState<T> {
   const initialValue = value.value
   const isDirty = computed(() => value.value === initialValue)
-  watch(value, () => {
-    console.log(value.value, initialValue)
-    console.log(value.value === initialValue)
-  })
   const reset = () => (value.value = initialValue)
-  const setValue = (newValue: T) => value.value = newValue
+  const setValue = (newValue: T) => value.value = newValue.value
 
   return {
     value,

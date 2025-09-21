@@ -5,5 +5,8 @@ const textInput = ref('text input')
 </script>
 
 <template>
-  <BindleInput type="text" id="test" label="Test label" v-model="textInput"  />
-</template>
+  <form >
+    <BindleInput type="text" id="test" label="Test label" v-model="textInput" required />
+    <input type="submit" value="Submit">
+  </form>
+  </template>

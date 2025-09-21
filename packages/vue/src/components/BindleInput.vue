@@ -18,20 +18,22 @@ type Props = {
 
 const props = defineProps<Props>()
 
-const { type, state } = useBindleField({type: props.type, value: model, id: props.id})
-const { value } = state
+const { type, state, validation } = useBindleField({type: props.type, value: model, id: props.id})
+
+const { errors, addValidation } = validation
+
+addValidation({name: 'test', message: 'nice people', validator: () => model.value === 'test'})
+
 </script>
 
 <template>
-  <p class=" text-blue-500">
-    {{ value }}
-    {{ state }}
-    {{ state.isDirty }}
-    {{ state.value }}
-  </p>
   <div class="flex flex-col">
     <label :v-if="label" :for="id">{{ label }}</label>
     <input :type="type" :id v-model="model" class="border border-gray-700 rounded" >
     <p v-if="help">{{ help }}</p>
+    <div>
+      <p v-for="error in errors">{{ error[1] }}</p>
+
+    </div>
   </div>
 </template>
