@@ -1,8 +1,15 @@
 {
-  "name": "schema",
+  "name": "@bindle/schema",
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,7 +18,10 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "vite-plugin-dts": "^4.5.4"
+    "@bindle/core": "workspace:*",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.21"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.4.1",
