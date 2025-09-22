@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useBindleField } from '@bindle/core'
-import type { InputHTMLAttributes, IntrinsicElementAttributes, NativeElements } from 'vue'
+import type { InputHTMLAttributes } from 'vue'
 
 const model = defineModel<unknown>()
 
@@ -33,7 +33,6 @@ addValidation('test', 'nice people', () => model.value === 'test')
     <p v-if="help">{{ help }}</p>
     <div class="text-red-500">
       <p v-for="error in errors">{{ error[1] }}</p>
-
     </div>
   </div>
 </template>
