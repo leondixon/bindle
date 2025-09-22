@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@bindle/core": "workspace:*",
+    "@bindle/schema": "workspace:*",
     "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.13",
     "vue": "^3.5.21",

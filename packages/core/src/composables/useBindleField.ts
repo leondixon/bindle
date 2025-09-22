@@ -2,16 +2,16 @@ import type { Ref } from 'vue'
 import { useBindleValidation } from './useBindleValidation'
 import { useFieldState } from './useFieldState'
 
-type FieldType = 'text' | 'number' | 'select' | 'textarea'
+export type BindleFieldType = 'text' | 'number' | 'select' | 'textarea'
 interface Options<T extends Ref> {
   id?: string
   name?: string
-  type: FieldType
+  type: BindleFieldType
   value: T
 }
 
 export interface BindleField<T extends Ref> {
-  type: FieldType
+  type: BindleFieldType
   state: ReturnType<typeof useFieldState<T>>
   validation: ReturnType<typeof useBindleValidation>
 }
